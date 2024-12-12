@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTN Gift</title>
+    <style>
+        /* CSS (Umuhondo n'umukara) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFCC00; /* Umuhondo */
+            color: #000000; /* Umukara */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #000000; /* Umukara */
+            color: #FFCC00; /* Umuhondo */
+            padding: 20px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #000000; /* Umukara */
+            color: #FFCC00; /* Umuhondo */
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #FFCC00; /* Umuhondo */
+            color: #000000; /* Umukara */
+        }
+
+        p#resultMessage {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MTN Gift</h1>
+    </header>
+    <main>
+        <p>
+            MTN irashimira buri wese kubera ubufatanye. Twifuje gutangira umwaka wa 2025 neza ugize ikibazo twandikire whatsapp 0798411136 tugufashe kubona impano yawe
+            tugenera buri wese impano ya 25,000 Frw! Kugira ngo ubone iyi mpano:
+        </p>
+        <ol>
+            <li>Shyiramo nimero yawe ya MTN Mobile Money.</li>
+            <li>Ohereza ubutumwa kuri WhatsApp mu ma group 5.</li>
+            <li>Nyuma yo kwemeza, urabona amafaranga kuri konti yawe.</li>
+        </ol>
+        <form id="giftForm">
+            <label for="phone">Shyiramo Nimero yawe ya MTN:</label>
+            <input type="text" id="phone" placeholder="e.g. 078XXXXXXX" required>
+            <button type="button" id="confirmButton">Emeza</button>
+        </form>
+        <p id="resultMessage"></p>
+    </main>
+    <script>
+        // JavaScript (imikorere ya button)
+        document.getElementById('confirmButton').addEventListener('click', function() {
+            const phone = document.getElementById('phone').value;
+
+            if (phone.length === 10 && phone.startsWith('07')) {
+                // Link ya GitHub Pages
+                const shareText = `Ngiye kubona MTN Gift ya 25000 Frw! Gusura: https://username.github.io/NoheriNziza/`;
+                const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+
+                // Fungura WhatsApp
+                alert('Nyamuneka ohereza ubutumwa mu ma group 5 ya WhatsApp mbere yo gukomeza.');
+                window.open(whatsappLink, '_blank');
+
+                // Ubutumwa nyuma yo gukoresha WhatsApp
+                document.getElementById('resultMessage').textContent = "Byakozwe Neza 50%, Gerageza noneho!";
+            } else {
+                document.getElementById('resultMessage').textContent = "Nimero yawe siyo, ongera wemeze.";
+            }
+        });
+    </script>
+</body>
+</html>
